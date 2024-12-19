@@ -1,66 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Website</title>
-    <style>
-        /* Basic styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background: #007BFF;
-            color: white;
-            padding: 1em 0;
-            text-align: center;
-        }
-        nav {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 0.5em;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1em;
-        }
-        main {
-            padding: 2em;
-            text-align: center;
-        }
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Max Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Test Website</h1>
-    </header>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <main>
-        <h2>This is the main content area</h2>
-        <p>Here you can add text, images, videos, or anything else you want.</p>
-        <p>This is just a simple example of an HTML test website.</p>
-    </main>
-    <footer>
-        <p>&copy; 2024 My Test Website</p>
-    </footer>
+  <header>
+    <div class="hero">
+      <h1>Hi, I'm <span class="highlight">Max Gerlach</span></h1>
+      <p>Welcome to my world of creativity, passion, and innovation.</p>
+      <a href="#about" class="btn">Discover More</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>Hello! I'm Max Gerlach, a passionate IT student. I enjoy working on computers, setting up networks and creating products to help people.</p>
+    </section>
+
+    <section id="hobbies" class="section">
+      <h2>My Hobbies</h2>
+      <div class="hobbies">
+        <div class="hobby-card">🎮 Gaming</div>
+        <div class="hobby-card">📷 Photography</div>
+        <div class="hobby-card">💻 Coding</div>
+      </div>
+    </section>
+
+    <section id="socials" class="section">
+      <h2>Connect With Me</h2>
+      <ul id="social-links">
+        <li><a href="https://github.com/maxger1ach" target="_blank">GitHub</a></li>
+        <li><a href="https://placehold.co" target="_blank">Discord</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Max Gerlach. Made with ❤️ and creativity.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
