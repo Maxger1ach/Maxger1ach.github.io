@@ -55,56 +55,10 @@ header {
     text-shadow: 0 0 10px #ff0099;
   }
   
-  /* Mobile styles */
-  @media (max-width: 768px) {
-    /* Position the hamburger to the left */
-    .hamburger {
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-      z-index: 150; /* Ensure the hamburger is above other elements */
-    }
-  
-    .hamburger div {
-      width: 30px;
-      height: 4px;
-      background-color: #00ccff;
-      border-radius: 5px;
-    }
-  
-    /* Hide the nav links by default on mobile */
-    .nav-links {
-      display: none;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      flex-direction: column;
-      gap: 1.5rem;
-      padding: 1rem;
-    }
-  
-    .nav-links.active {
-      display: flex;
-    }
-  
-    /* Style for the nav links when visible on mobile */
-    .nav-links a {
-      font-size: 1.5rem;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-    }
-  }
-  
+ 
   /* Ensure section titles fit the screen */
   .section {
-    padding: 5rem 2rem;
+    padding: 4rem 2rem;
     text-align: center;
     min-height: 100vh;
   }
