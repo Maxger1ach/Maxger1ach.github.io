@@ -13,3 +13,5 @@ document.addEventListener('DOMContentLoaded', () => {
     i = (i + 1) % greetings.length;
   }, 3000);
   
+  // Placeholder for adding dynamic interaction logic if needed.
+console.log("Welcome to my tech-savvy website!");
