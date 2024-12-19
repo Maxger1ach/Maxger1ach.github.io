@@ -1,1 +1,753 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* General Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    z-index: 100;
+    transition: background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Change the header's background when scrolling */
+  header.scrolled {
+    background: rgba(0, 0, 0, 1); /* Full black when scrolling */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow when scrolled */
+  }
+  
+  /* Nav styles */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Menu items */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links li {
+    display: inline-block;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00ccff;
+    transition: color 0.3s, text-shadow 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #ff0099;
+    text-shadow: 0 0 10px #ff0099;
+  }
+  
+ 
+  /* Ensure section titles fit the screen */
+  .section {
+    padding: 4rem 2rem;
+    text-align: center;
+    min-height: 100vh;
+  }
+  
+  h2 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #00ccff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    position: relative;
+  }
+  
+  /* Underline for section titles */
+  h2::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 3px;
+    background-color: #ff0099;
+    margin: 1rem auto 0;
+  }
+  
+  /* Make the title more responsive */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+  
+/* Global Header Styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif; /* Synthwave style font */
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    margin: 1rem 0;
+  }
+  
+  /* Neon Gradient Text Effect */
+  h1, h2, h4 {
+    background: linear-gradient(45deg, #00ccff, #ff0099, #ff6f00);
+    background-clip: text;
+    color: transparent;
+    font-size: 3rem; /* Adjust font size as needed */
+    animation: neonGlow 2s ease-in-out infinite alternate; /* Smoother glow animation */
+    position: relative; /* For line positioning */
+  }
+  
+  /* Add the line under the header */
+  h1::after, h2::after, h4::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(45deg, #00ccff, #ff0099, #ff6f00);
+    bottom: -10px; /* Position the line below the text */
+    left: 0;
+    animation: underlineGlow 2s ease-in-out infinite alternate;
+  }
+  
+  /* Neon Glow Animation */
+  @keyframes neonGlow {
+    0% {
+      text-shadow: 0 0 5px #00ccff, 0 0 10px #00ccff, 0 0 20px #ff0099, 0 0 30px #ff0099;
+    }
+    50% {
+      text-shadow: 0 0 15px #ff0099, 0 0 25px #ff0099, 0 0 35px #ff6f00, 0 0 45px #ff6f00;
+    }
+    100% {
+      text-shadow: 0 0 30px #00ccff, 0 0 40px #00ccff, 0 0 50px #ff0099, 0 0 60px #ff0099;
+    }
+  }
+  
+  /* Underline Glow Animation */
+  @keyframes underlineGlow {
+    0% {
+      background: linear-gradient(45deg, #00ccff, #ff0099);
+    }
+    50% {
+      background: linear-gradient(45deg, #ff0099, #ff6f00);
+    }
+    100% {
+      background: linear-gradient(45deg, #ff6f00, #00ccff);
+    }
+  }
+  
+  /* Subtitle Styling (without underline effect) */
+  h3 span {
+    font-weight: bold;
+    color: #ff0099;
+    text-shadow: 0 0 8px #ff0099, 0 0 15px #ff0099;
+  }
+  
+  /* Remove underline effect for subtext */
+  h2::before, h3::before {
+    content: none;
+  }
+  
+
+
+body, html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto Mono', monospace;
+    overflow: hidden; /* To prevent scrollbars */
+  }
+  
+  /* Style for particles canvas */
+  #art-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it's behind the content */
+  }
+  
+  /* Section styles */
+  section {
+    position: relative;
+    padding: 60px 20px;
+    z-index: 1;
+  }
+  
+  header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    z-index: 10;
+  }
+  
+  header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+  }
+  
+  header nav ul li {
+    margin: 0 20px;
+  }
+  
+  header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  h3, p {
+    color: white;
+  }
+  
+  /* Synthwave Text Effect */
+.synthwave-text {
+    font-size: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(45deg, #ff0080, #8e2de2, #4a00e0); /* Synthwave gradient colors */
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: neonPulse 3.0s ease-in-out infinite, neonGlow 10s ease-in-out infinite alternate;
+    text-shadow: 0 0 10px rgba(255, 0, 128, 0.8), 0 0 20px rgba(255, 0, 128, 0.8), 0 0 30px rgba(255, 0, 128, 1), 0 0 40px rgba(255, 0, 128, 1), 0 0 50px rgba(255, 0, 128, 1), 0 0 75px rgba(255, 0, 128, 1);
+  }
+  
+  /* Animation for neon glowing pulse */
+  @keyframes neonPulse {
+    0% {
+      text-shadow: 0 0 10px rgba(255, 0, 128, 0.8), 0 0 20px rgba(255, 0, 128, 0.8), 0 0 30px rgba(255, 0, 128, 1), 0 0 40px rgba(255, 0, 128, 1), 0 0 50px rgba(255, 0, 128, 1), 0 0 75px rgba(255, 0, 128, 1);
+    }
+    50% {
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 1), 0 0 75px rgba(0, 255, 255, 1);
+    }
+    100% {
+      text-shadow: 0 0 10px rgba(255, 0, 128, 0.8), 0 0 20px rgba(255, 0, 128, 0.8), 0 0 30px rgba(255, 0, 128, 1), 0 0 40px rgba(255, 0, 128, 1), 0 0 50px rgba(255, 0, 128, 1), 0 0 75px rgba(255, 0, 128, 1);
+    }
+  }
+  
+  /* Additional animation for more glowy, flashing effect */
+  @keyframes neonGlow {
+    0% {
+      text-shadow: 0 0 10px rgba(255, 0, 128, 0.8), 0 0 20px rgba(255, 0, 128, 0.8), 0 0 30px rgba(255, 0, 128, 1), 0 0 40px rgba(255, 0, 128, 1);
+    }
+    50% {
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 1);
+    }
+    100% {
+      text-shadow: 0 0 10px rgba(255, 0, 128, 0.8), 0 0 20px rgba(255, 0, 128, 0.8), 0 0 30px rgba(255, 0, 128, 1), 0 0 40px rgba(255, 0, 128, 1);
+    }
+  }
+  
+  
+  .btn {
+    padding: 10px 20px;
+    background: #f39c12;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn:hover {
+    background: #e67e22;
+  }
+
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    color: #fff;
+    background: #000; /* Fallback if canvas fails */
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Full-Screen Canvas for Background */
+#art-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Fixed Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    z-index: 100;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00ccff;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff0099;
+    text-shadow: 0 0 10px #ff0099;
+}
+
+/* About Me Section */
+#about-me {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.about-text {
+    max-width: 600px;
+    text-align: left;
+    font-family: 'Orbitron', sans-serif;
+    color: #f5f5f5;
+}
+
+
+.about-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.skills-list li {
+    font-size: 1.1rem;
+    background: #00ccff;
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 0.5rem;
+}
+
+/* Interactive 3D Card */
+.about-card {
+    perspective: 1000px;
+}
+
+.card {
+    width: 250px;
+    height: 350px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.card:hover {
+    transform: rotateY(180deg);
+}
+
+.card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-front {
+    background: #111;
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #00ccff, #000);
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-back h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.card-back p {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* Section Styles */
+.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff;
+}
+
+.section p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+/* Example Box Styles */
+.examples {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.example {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.example h3 {
+    font-size: 1.5rem;
+    color: #00ccff;
+    margin-bottom: 0.5rem;
+}
+
+.example p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.example:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00ccff;
+}
+
+/* Button Styles */
+.btn {
+    font-size: 1.2rem;
+    color: #fff;
+    background: #00ccff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    background: #ff0099;
+    box-shadow: 0 0 15px #ff0099;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #111;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Example Image Styling */
+.example img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.example img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.8);
+}
+
+/* Greeting Section Styling */
+#art-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  /* Fixed Header */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+  }
+  
+  header nav {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links li {
+    display: inline-block;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00ccff;
+    transition: color 0.3s, text-shadow 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #ff0099;
+    text-shadow: 0 0 10px #ff0099;
+  }
+  
+ /* Greeting Section Styling */
+#art-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  /* Fixed Header */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+  }
+  
+  header nav {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links li {
+    display: inline-block;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00ccff;
+    transition: color 0.3s, text-shadow 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #ff0099;
+    text-shadow: 0 0 10px #ff0099;
+  }
+  
+  /* Greeting Section */
+  #greeting {
+    text-align: center;
+    margin-top: 6rem;
+    color: #fff;
+  }
+  
+  #greeting h2 {
+    font-size: 3rem;
+    color: #00ccff;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 15px #ff0099, 0 0 30px #ff0099;
+    transition: transform 0.3s ease, color 0.3s, text-shadow 0.3s ease;
+  }
+  
+  #greeting p {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  
+  #greeting .btn {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    color: #fff;
+    background-color: #00ccff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  #greeting .btn:hover {
+    background-color: #ff0099;
+    transform: scale(1.05);
+  }
+  
+  /* Hover Effect for Typing Greeting */
+  #greeting-message:hover {
+    cursor: pointer;
+    color: #ff0099;
+    text-shadow: 0 0 30px #ff0099, 0 0 40px #ff0099;
+    transform: scale(1.1);
+  }
+  
+/* Futuristic Scroll Down Button Styling */
+.scroll-down-btn {
+    position: fixed;
+    left: 20px; /* Distance from the left side of the viewport */
+    top: 50%; /* Vertically center it */
+    transform: translateY(-50%);
+    background-color: #00ccff; /* Neon green for futuristic look */
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 28px;
+    color: rgb(255, 255, 255);
+    z-index: 10;
+    box-shadow: 0 0 20px #00ccff;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .scroll-down-btn:hover {
+    background-color: #00ccff; /* Darker neon green */
+    transform: translateY(-50%) scale(1.2); /* Slight zoom effect */
+    box-shadow: 0 0 25px #00ccff;
+  }
+  
+  .scroll-down-btn span {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 15px #00ccff;
+    transform: rotate(90deg); /* Rotate the arrow */
+  }
+  
+/* For Mobile Devices */
+@media (max-width: 768px) {
+    #scroll-down-btn {
+      display: none; /* Hide scroll down button on mobile */
+    }
+  }
+  
+  /* For Larger Screens (PC/Tablets) */
+  @media (min-width: 769px) {
+    #scroll-down-btn {
+      display: flex; /* Show the button on larger screens */
+    }
+  }
+  
+  /* Enabling smooth scrolling for all devices */
+  html {
+    scroll-behavior: smooth; /* This enables smooth scrolling across the entire page */
+  }
+  
